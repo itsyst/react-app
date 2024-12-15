@@ -1,4 +1,4 @@
-import { BrowserRouter as Router, Routes, Route} from 'react-router-dom';
+import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
 import { useState } from 'react';
 import { people, content } from './data/inter-data';
 import { Person } from './types/Person';
@@ -7,7 +7,7 @@ import ListGroup from './components/ListGroup';
 import Button from './components/Button';
 import './App.css';
 import ExpandableText from './components/ExpandableText';
-import Forms from './components/Forms';
+import Forms from './components/Form';
 import Nav from './components/Nav';
 
 function App() {
@@ -27,7 +27,7 @@ function App() {
 	return (
 		<Router>
 			<div className="p-5">
-				<Nav/>
+				<Nav />
 				<Routes>
 					<Route
 						path="/"
@@ -58,7 +58,17 @@ function App() {
 						}
 					/>
 
-					<Route path="/forms" element={<Forms />} />
+					<Route
+						path="/forms"
+						element={
+							<>
+								<h1 className="text-xl font-bold">Forms</h1>
+								<div className="w-full mt-2">
+									<Forms />
+								</div>
+							</>
+						}
+					/>
 				</Routes>
 			</div>
 		</Router>
