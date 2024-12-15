@@ -1,3 +1,4 @@
+import { BrowserRouter as Router, Routes, Route} from 'react-router-dom';
 import { useState } from 'react';
 import { people, content } from './data/inter-data';
 import { Person } from './types/Person';
@@ -6,6 +7,8 @@ import ListGroup from './components/ListGroup';
 import Button from './components/Button';
 import './App.css';
 import ExpandableText from './components/ExpandableText';
+import Forms from './components/Forms';
+import Nav from './components/Nav';
 
 function App() {
 	const heading = 'People';
@@ -22,25 +25,43 @@ function App() {
 	};
 
 	return (
-		<>
-			<ListGroup
-				items={people}
-				heading={heading}
-				onSelectItem={handleSelectItem}
-			/>
-			{selectedPerson && (
-				<Alert type={type}>
-					<p>
-						You selected
-						<span className="font-bold ml-2 text-black">
-							{selectedPerson.name}
-						</span>
-					</p>
-					<Button onClose={handleCloseAlert}>Close</Button>
-				</Alert>
-			)}
-			<ExpandableText>{content}</ExpandableText>
-		</>
+		<Router>
+			<div className="p-5">
+				<Nav/>
+				<Routes>
+					<Route
+						path="/"
+						element={
+							<>
+								{/* ListGroup Component */}
+								<ListGroup
+									items={people}
+									heading={heading}
+									onSelectItem={handleSelectItem}
+								/>
+								{/* Alert Component */}
+
+								{selectedPerson && (
+									<Alert type={type}>
+										<p>
+											You selected
+											<span className="font-bold ml-2 text-black">
+												{selectedPerson.name}
+											</span>
+										</p>
+										<Button onClose={handleCloseAlert}>Close</Button>
+									</Alert>
+								)}
+								{/* ExpandableText Component */}
+								<ExpandableText>{content}</ExpandableText>
+							</>
+						}
+					/>
+
+					<Route path="/forms" element={<Forms />} />
+				</Routes>
+			</div>
+		</Router>
 	);
 }
 
