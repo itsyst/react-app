@@ -1,10 +1,11 @@
 import { useState } from 'react';
-import { people } from './data/inter-data';
+import { people, content } from './data/inter-data';
 import { Person } from './types/Person';
 import Alert from './components/Alert';
 import ListGroup from './components/ListGroup';
 import Button from './components/Button';
 import './App.css';
+import ExpandableText from './components/ExpandableText';
 
 function App() {
 	const heading = 'People';
@@ -38,6 +39,7 @@ function App() {
 					<Button onClose={handleCloseAlert}>Close</Button>
 				</Alert>
 			)}
+			<ExpandableText>{content}</ExpandableText>
 		</>
 	);
 }
