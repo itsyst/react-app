@@ -6,10 +6,10 @@ interface Props {
 	onClose: () => void;
 }
 
-const Button = ({ children, onClose, bgColor = 'slate-50' }: Props) => {
+const Button = ({ children, onClose, bgColor = 'bg-slate-50' }: Props) => {
 	return (
 		<button
-			className={`ml-auto text-sm bg-${bgColor} text-black px-2 py-1 rounded`}
+			className={`ml-auto text-sm ${bgColor} text-black px-2 py-1 rounded`}
 			onClick={onClose}
 		>
 			{children}

@@ -1,3 +1,12 @@
+<div align="center">
+  <a href="https://github.com/itsyst/khaled_elhamzi_portfolio">
+    <img alt="logo" src="https://res.cloudinary.com/dzltxlm9l/image/upload/v1601971370/logo_fd60ee4493.png" width="90"  />
+  </a>
+  <p>React + TypeScript + Tailwindcss</p>
+  <p>This is a basic beginner-level filter list showcasing people, demonstrating click events and alerts using TypeScript.</p>
+</div>
+
+
 # React + TypeScript + Vite
 
 This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
@@ -48,3 +57,9 @@ export default tseslint.config({
   },
 })
 ```
+
+## Layouts
+<a href="https://github.com/itsyst/react-app">
+ <img src="https://github.com/itsyst/react-app/src/images/home.png" alt="people" border="0"> 
+ <img src="https://github.com/itsyst/react-app/src/images/alert.png" alt="alert" border="0"> 
+</a>
