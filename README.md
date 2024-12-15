@@ -60,6 +60,6 @@ export default tseslint.config({
 
 ## Layouts
 <a href="https://github.com/itsyst/react-app">
- <img src="https://github.com/itsyst/react-app/src/images/home.png" alt="people" border="0"> 
- <img src="https://github.com/itsyst/react-app/src/images/alert.png" alt="alert" border="0"> 
+ <img src="https://github.com/itsyst/react-app/blob/master/src/images/home.png" alt="people" border="0"> 
+ <img src="https://github.com/itsyst/react-app/blob/master/src/images/alert.png" alt="alert" border="0"> 
 </a>
