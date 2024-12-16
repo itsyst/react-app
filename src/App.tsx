@@ -1,19 +1,24 @@
 import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
 import { useState } from 'react';
-import { people, content } from './data/inter-data';
+import { people, content } from './data/people-data';
 import { Person } from './types/Person';
 import Alert from './components/Alert';
-import ListGroup from './components/ListGroup';
 import Button from './components/Button';
-import './App.css';
 import ExpandableText from './components/ExpandableText';
 import Forms from './components/Form';
+import ListGroup from './components/ListGroup';
 import Nav from './components/Nav';
+import Products from './components/Products';
+import './App.css';
+import { expenses } from './data/expense-data';
+import { Expense } from './types/Expense';
+import { categories } from './data/category-data';
 
 function App() {
 	const heading = 'People';
 	const type = 'info';
 	const [selectedPerson, setSelectedPerson] = useState<Person | null>(null);
+	const [getExpenses, setExpenses] = useState<Expense[]>(expenses);
 
 	const handleSelectItem = (item: Person) => {
 		console.log(JSON.stringify(item, null, 2));
@@ -34,20 +39,14 @@ function App() {
 						element={
 							<>
 								{/* ListGroup Component */}
-								<ListGroup
-									items={people}
-									heading={heading}
-									onSelectItem={handleSelectItem}
-								/>
+								<ListGroup items={people} heading={heading} onSelectItem={handleSelectItem} />
 								{/* Alert Component */}
 
 								{selectedPerson && (
 									<Alert type={type}>
 										<p>
 											You selected
-											<span className="font-bold ml-2 text-black">
-												{selectedPerson.name}
-											</span>
+											<span className="font-bold ml-2 text-black">{selectedPerson.name}</span>
 										</p>
 										<Button onClose={handleCloseAlert}>Close</Button>
 									</Alert>
@@ -57,7 +56,17 @@ function App() {
 							</>
 						}
 					/>
-
+					<Route
+						path="/products"
+						element={
+							<>
+								<h1 className="text-xl font-bold">Products</h1>
+								<div className="w-full mt-2">
+									<Products expenses={getExpenses} categories={categories} onDelete={(id) => setExpenses(getExpenses.filter((e) => e.id !== id))} />
+								</div>
+							</>
+						}
+					/>
 					<Route
 						path="/forms"
 						element={

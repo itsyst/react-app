@@ -1,12 +1,17 @@
-export const Links = [
+export const links = [
 	{
 		id: 0,
-		to:'/',
+		to: '/',
 		name: 'People'
 	},
 	{
 		id: 1,
-		to:'/forms',
+		to: '/products',
+		name: 'Products'
+	},
+	{
+		id: 2,
+		to: '/forms',
 		name: 'Forms'
-	}
+	},
 ];
