@@ -34,8 +34,10 @@ const Products = ({ expenses, categories }: Props) => {
 
 	const handleSubmit = (data: FieldValues) => {
 		const newExpense: Expense = {
-			...data,
-			id: expenses.length + 1
+			id: Number(Date.now()),
+			description: data.description,
+			amount: Number(data.amount),
+			category: data.category
 		};
 
 		const updatedExpenses = [newExpense, ...expenses];
