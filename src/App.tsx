@@ -2,6 +2,9 @@ import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
 import { useState } from 'react';
 import { people, content } from './data/people-data';
 import { Person } from './types/Person';
+import { expenses } from './data/expense-data';
+import { Expense } from './types/Expense';
+import { categories } from './data/category-data';
 import Alert from './components/Alert';
 import Button from './components/Button';
 import ExpandableText from './components/ExpandableText';
@@ -10,9 +13,6 @@ import ListGroup from './components/ListGroup';
 import Nav from './components/Nav';
 import Products from './components/Products';
 import './App.css';
-import { expenses } from './data/expense-data';
-import { Expense } from './types/Expense';
-import { categories } from './data/category-data';
 
 function App() {
 	const heading = 'People';
@@ -21,7 +21,6 @@ function App() {
 	const [getExpenses, setExpenses] = useState<Expense[]>(expenses);
 
 	const handleSelectItem = (item: Person) => {
-		console.log(JSON.stringify(item, null, 2));
 		setSelectedPerson(item);
 	};
 
